@@ -11,6 +11,8 @@ sudo ln -s -f ~/dotfiles/conda/condarc ~/.condarc
 
 echo "Link zshrc"
 sudo ln -s -f ~/dotfiles/zsh/zshrc ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Append aliases to .bashrc
 echo '# Tmux' >> ~/.zshrc
