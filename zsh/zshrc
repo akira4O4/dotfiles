@@ -106,6 +106,40 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/seeking/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/seeking/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/seeking/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/seeking/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/seeking/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/seeking/mambaforge/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+#OpenCV
+export OPENCV_HOME=/home/seeking/llf/opencv
+export PATH=${PATH}:${OPENCV_HOME}
+export PKG_CONFIG_PATH=${OPENCV_HOME}/lib/pkgconfig:${PKG_CONFIG_PATH}
+
+#TensorRT
+export TRT_HOME=/home/seeking/llf/TensorRT
+export PATH=${PATH}:${TRT_HOME}/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${TRT_HOME}/lib
+
+#CUDA
+export PATH=${PATH}:/usr/local/cuda/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
+
 # Tmux
 alias tns="tmux new -s"
 alias tl="tmux ls"
