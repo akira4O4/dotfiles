@@ -126,6 +126,10 @@ if [ -f "/home/seeking/mambaforge/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 #OpenCV
 export OPENCV_HOME=/home/seeking/llf/opencv
 export PATH=${PATH}:${OPENCV_HOME}
@@ -137,11 +141,22 @@ export PATH=${PATH}:${TRT_HOME}/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${TRT_HOME}/lib
 
 #CUDA
-export PATH=${PATH}:/usr/local/cuda/bin
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
+export CUDA_HOME=/usr/local/cuda
+export PATH=${PATH}:#{CUDA_HOME}/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:#{CUDA_HOME}/lib64
 
 # Tmux
 alias tns="tmux new -s"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
+
+export LUA_PATH="/usr/local/share/lua/5.3/?.lua;;"
+export LUA_CPATH="/usr/local/lib/lua/5.3/?.so;;"
+export LUA_VERSION=5.3
+export LUA_DIR=/usr/local
+
+export CUDACXX=/usr/local/cuda/bin/nvcc
+# >>> xmake >>>
+test -f "/home/seeking/.xmake/profile" && source "/home/seeking/.xmake/profile"
+# <<< xmake <<<
